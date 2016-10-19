@@ -23,6 +23,15 @@ You can also make `shield` start Firefox with a certain variation:
 
 ## See also
 
+### Privacy settings/changes/ideas
+
+* [securefox etherpad](https://public.etherpad-mozilla.org/p/securefox)
+* [referrerimprovements](https://public.etherpad-mozilla.org/p/referrerimprovements)
+* [healthiercookies](https://public.etherpad-mozilla.org/p/healthiercookies)
+* [ContentSecWeeklyMeeting](https://public.etherpad-mozilla.org/p/ContentSecWeeklyMeeting)
+
+### Shield Docs
+
 * [shield-studies-addon-template README](https://github.com/mozilla/shield-studies-addon-template/blob/master/README.md)
 * [shield-studies-addon-utils](https://github.com/mozilla/shield-studies-addon-utils)
 * [howToShieldStudy](https://github.com/mozilla/shield-studies-addon-utils/blob/master/howToShieldStudy.md)
