@@ -1,0 +1,132 @@
+body {
+  width: 360px;
+  overflow: hidden;
+}
+
+hr {
+  margin: auto;
+}
+
+p {
+  line-height: 1.44em;
+}
+
+.row {
+  padding: .5em;
+}
+
+.row .row {
+  margin: 0;
+}
+
+.panel {
+  height: 100%;
+}
+
+.main-panel,
+.feedback-panel-form {
+  padding-top: .5em;
+}
+
+.feedback-panel-form fieldset {
+  width: 100%;
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.feedback-btn-row {
+  padding-top: 5.25em;
+  padding-bottom: 5.25em;
+}
+
+.panel-row {
+  padding: 0;
+  height: 100%;
+}
+
+.button {
+  background-color: #2EA3FF;
+  border-radius: 5px;
+}
+
+.button:focus, .button:hover {
+  background-color: #0c81dd;
+}
+
+.button.secondary {
+  background-color: #F2F2F2;
+  color: #1F1F1F;
+}
+
+.button.secondary:focus, .button.secondary:hover {
+  background-color: #dbdbdb;
+  color: #1F1F1F;
+}
+
+.toggle-label-column {
+  font-size: 13px;
+}
+
+.toggle-column {
+  text-align: right;
+}
+
+input ~ .switch-paddle {
+  border-radius: 15px;
+  background: #999999;
+  vertical-align: middle;
+}
+
+input:checked ~ .switch-paddle {
+  background: #4BD463;
+}
+
+.switch-paddle::after {
+  border-radius: 15px;
+}
+
+#breakage-required {
+  color: #ec5840;
+}
+
+.host-report > div {
+  font-size: 13px;
+  opacity: .9;
+}
+
+.host-report-date {
+  font-weight: bold;
+}
+
+.radio-form {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: table-cell;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.radio-form label {
+  width: 220px;
+}
+
+.notes-label {
+  display: block;
+  font-size: 13px;
+  line-height: 1.44em;
+  margin-bottom: .5rem;
+}
+
+.breakage {
+  margin-bottom: .5em;
+}
+
+#notes {
+  font-size: 13px;
+  resize: none;
+  padding: 5px;
+}

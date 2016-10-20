@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/data/panel/css/foundation.min.css">
+    <link rel="stylesheet" href="/data/panel/css/popup.css">
+  </head>
+
+  <body>
+
+    <div id="main-panel" class="panel main-panel">
+      <div class="row">
+        <div class="columns">
+          <h5 class="blocking title">Shield Study: Privacy</h5>
+        </div>
+      </div>
+      <div class="row host-report-row hide">
+        <div class="columns host-report page-problem-host-report hide">
+          <div>You reported a problem with this page on<br><span class="host-report-date"></span>.</div>
+        </div>
+        <div class="columns host-report page-works-host-report hide">
+          <div>You said this page works well on<br><span class="host-report-date"></span>.</div>
+        </div>
+      </div>
+      <div class="row align-center feedback-btn-row">
+        <div class="columns">
+          <div class="blocking">
+            <a class="feedback-btn secondary expanded button" data-feedback="page-works">This page works well</a>
+            <a class="feedback-btn expanded button" data-feedback="page-problem">Report a problem</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="feedback-panel" class="panel hide">
+      <div class="row panel-row">
+        <div class="small-12 columns feedback-panel-form">
+          <div class="row">
+            <h5 class="title">We've noted the problem. <br>Thanks for letting us know.</h5>
+          </div>
+          <div class="row">
+            <p>Can you tell us more about your problem with this page?</p>
+            <fieldset>
+              <legend class="notes-label">There are problems with: <span id="breakage-required" class="hide">Required</span></legend>
+              <div class="radio-form">
+                <input class="breakage" type="radio" name="breakage" value="images" id="images">
+                <label for="images">Images</label><br>
+                <input class="breakage" type="radio" name="breakage" value="video" id="video">
+                <label for="video">Video</label><br>
+                <input class="breakage" type="radio" name="breakage" value="layout" id="layout">
+                <label for="layout">Layout</label><br>
+                <input class="breakage" type="radio" name="breakage" value="buttons" id="buttons">
+                <label for="buttons">Buttons</label><br>
+                <input class="breakage" type="radio" name="breakage" value="other" id="other">
+                <label for="other">Something else</label><br>
+              </div>
+            </fieldset>
+          </div>
+          <div class="row">
+            <a id="submit-breakage-btn" class="expanded button submit-btn">Submit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="breakage-notes-panel" class="panel hide">
+      <div class="row panel-row">
+        <div class="small-12 columns feedback-panel-form">
+          <div class="row">
+            <h5 class="title">We've noted the problem. <br>Thanks for letting us know.</h5>
+          </div>
+          <div class="row">
+            <label class="notes-label">Why do you think Tracking Protection caused this problem?</label>
+            <textarea id="notes" rows="7" maxlength="500" placeholder="500 character limit"></textarea>
+          </div>
+          <div class="row">
+            <a id="submit-notes-btn" class="expanded button submit-btn">Submit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/data/panel/js/popup.js"></script>
+
+  </body>
+
+</html>
