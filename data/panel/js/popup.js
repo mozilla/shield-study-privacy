@@ -84,12 +84,12 @@ for (let feedbackBtn of document.querySelectorAll('.feedback-btn')) {
   feedbackBtn.addEventListener('click', function (event) {
     let feedback = event.target.dataset.feedback
     let hostReport = {
+      'originDomain': 'TODO: get host domain for host report',
       'feedback': feedback,
       'dateTime': Date.now()
     }
     showHostReport(hostReport)
-    // TODO: figure out how to send Telemetry pings here
-    // browser.runtime.sendMessage(hostReport)
+    addon.port.emit('hostReport', hostReport)
     if (feedback === 'page-problem') {
       showFeedbackPanel()
     } else {
@@ -104,11 +104,11 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
       breakageChecked = document.querySelector('input.breakage:checked')
       if (breakageChecked !== null) {
         let message = {
+          'originDomain': 'TODO: get host domain for host report',
           'breakage': breakageChecked.value,
-          'notes': document.querySelector('textarea#notes').value
+          'notes': ''
         }
-        // TODO: figure out how to send Telemetry pings here
-        // browser.runtime.sendMessage(message)
+        addon.port.emit('breakage', message)
         showBreakageNotesPanel()
       } else {
         document.querySelector('#breakage-required').className = ''
@@ -120,8 +120,7 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
           'breakage': breakageChecked.value,
           'notes': notes
         }
-        // TODO: figure out how to send Telemetry pings here
-        // browser.runtime.sendMessage(message)
+        addon.port.emit('notes', message)
       }
       // TODO: update the panel UI and/or trigger a close
       // window.close()
