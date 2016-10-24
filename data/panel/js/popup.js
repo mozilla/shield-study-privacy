@@ -84,7 +84,6 @@ for (let feedbackBtn of document.querySelectorAll('.feedback-btn')) {
   feedbackBtn.addEventListener('click', function (event) {
     let feedback = event.target.dataset.feedback
     let hostReport = {
-      'originDomain': 'TODO: get host domain for host report',
       'feedback': feedback,
       'dateTime': Date.now()
     }
@@ -104,7 +103,6 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
       breakageChecked = document.querySelector('input.breakage:checked')
       if (breakageChecked !== null) {
         let message = {
-          'originDomain': 'TODO: get host domain for host report',
           'breakage': breakageChecked.value,
           'notes': ''
         }
