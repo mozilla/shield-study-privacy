@@ -103,8 +103,7 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
       breakageChecked = document.querySelector('input.breakage:checked')
       if (breakageChecked !== null) {
         let message = {
-          'breakage': breakageChecked.value,
-          'notes': ''
+          'breakage': breakageChecked.value
         }
         addon.port.emit('breakage', message)
         showBreakageNotesPanel()
@@ -120,8 +119,6 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
         }
         addon.port.emit('notes', message)
       }
-      // TODO: update the panel UI and/or trigger a close
-      // window.close()
     }
   })
 }
