@@ -80,6 +80,27 @@ function updateFromBackgroundPage (bgPage) {
   }
 }
 
+addon.port.on("breakageRadioOptions", (optionsArray) => {
+  for (let option of optionsArray) {
+    const radioOptionsDiv = document.querySelector('#breakage-radio-options')
+    const input = document.createElement("input");
+    const label = document.createElement("label");
+
+    input.classList.add("breakage");
+    input.type = "radio";
+    input.name = "breakage";
+    input.value = option.value;
+    input.id = option.value;
+
+    label.setAttribute("for", option.value);
+    label.innerText = option.label;
+
+    radioOptionsDiv.appendChild(input);
+    radioOptionsDiv.appendChild(label);
+    radioOptionsDiv.appendChild(document.createElement("br"));
+  }
+});
+
 for (let feedbackBtn of document.querySelectorAll('.feedback-btn')) {
   feedbackBtn.addEventListener('click', function (event) {
     let feedback = event.target.dataset.feedback
