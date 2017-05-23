@@ -2,7 +2,7 @@
   "name": "shield-study-privacy",
   "description": "Studies privacy effects on web breakage.",
   "version": "0.0.1",
-  "author": "Unknown",
+  "author": "Luke Crouch",
   "bugs": {
     "url": "https://github.com/mozilla/shield-study-privacy/issues"
   },
