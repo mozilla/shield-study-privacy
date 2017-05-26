@@ -1,0 +1,15 @@
+body {
+  background: #F2F2F2;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-box {
+  width: 34%;
+  background: #fff;
+  margin: 1em;
+}
