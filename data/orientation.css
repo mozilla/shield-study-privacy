@@ -24,3 +24,7 @@ body {
   font-weight: lighter;
   padding-bottom: 0.4em;
 }
+
+.breakage-icon {
+  background: url('/data/panel/img/report.svg');
+}
