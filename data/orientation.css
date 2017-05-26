@@ -27,4 +27,9 @@ body {
 
 .breakage-icon {
   background: url('/data/panel/img/report.svg');
+  block-size: 30px;
+  display: inline-block;
+  inline-size: 25px;
+  margin: 0 .25em;
+  vertical-align: middle;
 }
