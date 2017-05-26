@@ -1,5 +1,8 @@
 body {
   background: #F2F2F2;
+  font-family: -apple-system;
+  font-weight: lighter;
+  margin-bottom: .5em;
 }
 
 .wrapper {
@@ -9,7 +12,15 @@ body {
 }
 
 .splash-box {
-  width: 34%;
+  min-width: 13em;
+  max-width: 52em;
   background: #fff;
   margin: 1em;
+  padding: 1em;
+}
+
+.title-text {
+  border-bottom: 1px solid #f2f2f2;
+  font-weight: lighter;
+  padding-bottom: 0.4em;
 }
