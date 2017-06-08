@@ -13,16 +13,23 @@ body {
 
 .splash-box {
   min-width: 13em;
-  max-width: 52em;
+  max-width: 26em;
   background: #fff;
   margin: 1em;
-  padding: 2em 2em 2.4em 2em;
+  padding: 2em 2em 2em 2em;
 }
 
 .title-text {
   border-bottom: 1px solid #f2f2f2;
   font-weight: lighter;
   padding-bottom: 0.4em;
+}
+
+.title-logo {
+  height: 59px;
+  width: 57px;
+  vertical-align: middle;
+  padding-right: 1em;
 }
 
 .breakage-icon {
