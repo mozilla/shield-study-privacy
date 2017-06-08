@@ -1,8 +1,50 @@
-let disabled = false
-let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
+/* globals addon */
+const disabled = false
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const breakageRadioOptions = {
+  'control': [
+    {'value': 'layout', 'label': 'Layout'},
+    {'value': 'downloads', 'label': 'Downloads'},
+    {'value': 'login', 'label': 'Logins'},
+    {'value': 'payment', 'label': 'Payments'},
+    {'value': 'other', 'label': 'Something else'}
+  ],
+  'sessionOnlyThirdPartyCookies': [
+    {'value': 'payment-failure', 'label': 'Could not complete a payment.'},
+    {'value': 'login-failure', 'label': 'Could not sign in.'},
+    {'value': 'unexpected-signout', 'label': 'Was unexpectedly signed out.'},
+    {'value': 'other', 'label': 'Something else'}
+  ],
+  'noThirdPartyCookies': [
+    {'value': 'payment-failure', 'label': 'Could not complete a payment.'},
+    {'value': 'login-failure', 'label': 'Could not sign in.'},
+    {'value': 'other', 'label': 'Something else'}
+  ],
+  'trackingProtection': [
+    {'value': 'images', 'label': 'Images'},
+    {'value': 'video', 'label': 'Video'},
+    {'value': 'layout', 'label': 'Layout'},
+    {'value': 'buttons', 'label': 'Buttons'},
+    {'value': 'other', 'label': 'Something else'}
+  ],
+  'originOnlyRefererToThirdParties': [
+    {'value': 'images', 'label': 'Images'},
+    {'value': 'downloads', 'label': 'Downloads'},
+    {'value': 'login-failure', 'label': 'Could not sign in.'},
+    {'value': 'other', 'label': 'Something else'}
+  ],
+  'resistFingerprinting': [
+    {'value': 'layout', 'label': 'Layout'},
+    {'value': 'fonts', 'label': 'Fonts'},
+    {'value': 'flash', 'label': 'Flash'},
+    {'value': 'other', 'label': 'Something else'}
+  ]
+}
+const searchParams = new URL(window.location).searchParams;
+const variation = decodeURIComponent(searchParams.get("variation"));
 let breakageChecked = null
+
 
 function show (querySelector) {
   for (let element of document.querySelectorAll(querySelector)) {
@@ -80,26 +122,24 @@ function updateFromBackgroundPage (bgPage) {
   }
 }
 
-addon.port.on("breakageRadioOptions", (optionsArray) => {
-  for (let option of optionsArray) {
-    const radioOptionsDiv = document.querySelector('#breakage-radio-options')
-    const input = document.createElement("input");
-    const label = document.createElement("label");
+for (let option of breakageRadioOptions[variation]) {
+  const radioOptionsDiv = document.querySelector('#breakage-radio-options')
+  const input = document.createElement("input");
+  const label = document.createElement("label");
 
-    input.classList.add("breakage");
-    input.type = "radio";
-    input.name = "breakage";
-    input.value = option.value;
-    input.id = option.value;
+  input.classList.add("breakage");
+  input.type = "radio";
+  input.name = "breakage";
+  input.value = option.value;
+  input.id = option.value;
 
-    label.setAttribute("for", option.value);
-    label.innerText = option.label;
+  label.setAttribute("for", option.value);
+  label.innerText = option.label;
 
-    radioOptionsDiv.appendChild(input);
-    radioOptionsDiv.appendChild(label);
-    radioOptionsDiv.appendChild(document.createElement("br"));
-  }
-});
+  radioOptionsDiv.appendChild(input);
+  radioOptionsDiv.appendChild(label);
+  radioOptionsDiv.appendChild(document.createElement("br"));
+}
 
 for (let feedbackBtn of document.querySelectorAll('.feedback-btn')) {
   feedbackBtn.addEventListener('click', function (event) {
