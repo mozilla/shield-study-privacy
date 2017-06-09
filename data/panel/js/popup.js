@@ -21,6 +21,11 @@ const breakageRadioOptions = {
     {'value': 'login-failure', 'label': 'Could not sign in.'},
     {'value': 'other', 'label': 'Something else'}
   ],
+  'thirdPartyCookiesOnlyFromVisited': [
+    {'value': 'payment-failure', 'label': 'Could not complete a payment.'},
+    {'value': 'login-failure', 'label': 'Could not sign in.'},
+    {'value': 'other', 'label': 'Something else'}
+  ],
   'trackingProtection': [
     {'value': 'images', 'label': 'Images'},
     {'value': 'video', 'label': 'Video'},
