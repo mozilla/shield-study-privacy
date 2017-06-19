@@ -1,5 +1,5 @@
 /* globals addon */
-const disabled = false
+const disabled = false // eslint-disable-line no-unused-vars
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const breakageRadioOptions = {
@@ -121,8 +121,8 @@ function setEnabledUI () {
   document.querySelector('#enabledSwitch').setAttribute('checked', true)
 }
 
-function updateFromBackgroundPage (bgPage) {
-  disabled = bgPage.topFrameHostDisabled
+function updateFromBackgroundPage (bgPage) { // eslint-disable-line no-unused-vars
+  const disabled = bgPage.topFrameHostDisabled
   if (disabled) {
     setDisabledUI()
   } else {
