@@ -23,6 +23,10 @@ p {
   height: 100%;
 }
 
+.disable-study {
+  text-align: center;
+}
+
 .main-panel,
 .feedback-panel-form {
   padding-top: .5em;

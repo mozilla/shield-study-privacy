@@ -188,3 +188,9 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
     }
   })
 }
+
+for (let disableLink of document.querySelectorAll('.disable-link')) {
+  disableLink.addEventListener('click', () => {
+    addon.port.emit('disable')
+  })
+}
