@@ -13,6 +13,7 @@
       <div class="row">
         <div class="columns">
           <h5 class="blocking title">Shield Study: Privacy</h5>
+          <p>Let us know if you are experiencing any problems with your current webpage by reporting it here.
         </div>
       </div>
       <div class="row host-report-row hide">
@@ -40,10 +41,10 @@
       <div class="row panel-row">
         <div class="small-12 columns feedback-panel-form">
           <div class="row">
-            <h5 class="title">We've noted the problem. <br>Thanks for letting us know.</h5>
+            <h5 class="title">Report a problem</h5>
+            <p>We've noted the problem, thanks for letting us know. Can you tell us more about your problem with this page?</p>
           </div>
           <div class="row">
-            <p>Can you tell us more about your problem with this page?</p>
             <fieldset>
               <legend class="notes-label">There are problems with: <span id="breakage-required" class="hide">Required</span></legend>
               <div class="radio-form" id="breakage-radio-options">
@@ -51,7 +52,12 @@
             </fieldset>
           </div>
           <div class="row">
-            <a id="submit-breakage-btn" class="expanded button submit-btn">Submit</a>
+            <div class="columns">
+              <a id="submit-breakage-btn" class="expanded button submit-btn">Submit</a>
+              <div class="disable-study">
+                <a class="disable-link">Disable Privacy Study</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -61,14 +67,39 @@
       <div class="row panel-row">
         <div class="small-12 columns feedback-panel-form">
           <div class="row">
-            <h5 class="title">We've noted the problem. <br>Thanks for letting us know.</h5>
+            <h5 class="title">Add a comment</h5>
+            <p>Are there any more details that you can tell us about the problem?</p>
           </div>
           <div class="row">
-            <label class="notes-label">Why do you think Tracking Protection caused this problem?</label>
             <textarea id="notes" rows="7" maxlength="500" placeholder="500 character limit"></textarea>
           </div>
           <div class="row">
-            <a id="submit-notes-btn" class="expanded button submit-btn">Submit</a>
+            <div class="columns">
+              <a id="submit-notes-btn" class="expanded button submit-btn">Submit</a>
+              <div class="disable-study">
+                <a class="disable-link">Disable Privacy Study</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="thank-you-panel" class="panel hide">
+      <div class="row panel-row">
+        <div class="small-12 columns">
+          <div class="row">
+            <h5 class="title">Thank you!</h5>
+            <p>Thank you for your contribution, please continue to report any problems you find.</p>
+            <p>If this study is causing you to be unable to use the webpages that you need, feel free to disable it with the link below.</p>
+          </div>
+          <div class="row">
+            <div class="columns">
+              <a id="close-btn" class="expanded button">Close</a>
+              <div class="disable-study">
+                <a class="disable-link">Disable Privacy Study</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

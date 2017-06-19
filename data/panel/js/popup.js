@@ -75,6 +75,13 @@ function showBreakageNotesPanel () {
   show('#breakage-notes-panel')
 }
 
+function showThankYouPanel () {
+  hide('#main-panel')
+  hide('#feedback-panel')
+  hide('#breakage-notes-panel')
+  show('#thank-you-panel')
+}
+
 // grabbed from http://stackoverflow.com/questions/13203518/javascript-date-suffix-formatting
 // for clean date formatting
 // TODO: find an alternate solution if we ever L10N
@@ -158,7 +165,7 @@ for (let feedbackBtn of document.querySelectorAll('.feedback-btn')) {
     if (feedback === 'page-problem') {
       showFeedbackPanel()
     } else {
-      window.close()
+      addon.port.emit('close')
     }
   })
 }
@@ -185,9 +192,14 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
         }
         addon.port.emit('notes', message)
       }
+      showThankYouPanel()
     }
   })
 }
+
+document.querySelector('#close-btn').addEventListener('click', () => {
+  addon.port.emit('close')
+})
 
 for (let disableLink of document.querySelectorAll('.disable-link')) {
   disableLink.addEventListener('click', () => {
