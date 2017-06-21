@@ -1,6 +1,7 @@
 body {
   width: 360px;
   overflow: hidden;
+  color: #535353;
 }
 
 hr {
@@ -8,6 +9,7 @@ hr {
 }
 
 p {
+  font-size: 1.44em;
   line-height: 1.44em;
 }
 
@@ -23,6 +25,10 @@ p {
   height: 100%;
 }
 
+.disable-study {
+  text-align: center;
+}
+
 .main-panel,
 .feedback-panel-form {
   padding-top: .5em;
@@ -33,8 +39,9 @@ p {
 }
 
 .title {
-  font-size: 16px;
-  margin-bottom: 0;
+  font-family: -apple-system;
+  margin: .75em 0;
+  text-align: center;
 }
 
 .feedback-btn-row {
@@ -103,7 +110,6 @@ input:checked ~ .switch-paddle {
 
 .radio-form {
   border-radius: 3px;
-  border: 1px solid #ccc;
   box-sizing: border-box;
   display: table-cell;
   padding: 5px 10px;

@@ -1,5 +1,5 @@
 /* globals addon */
-const disabled = false
+const disabled = false // eslint-disable-line no-unused-vars
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const breakageRadioOptions = {
@@ -75,6 +75,13 @@ function showBreakageNotesPanel () {
   show('#breakage-notes-panel')
 }
 
+function showThankYouPanel () {
+  hide('#main-panel')
+  hide('#feedback-panel')
+  hide('#breakage-notes-panel')
+  show('#thank-you-panel')
+}
+
 // grabbed from http://stackoverflow.com/questions/13203518/javascript-date-suffix-formatting
 // for clean date formatting
 // TODO: find an alternate solution if we ever L10N
@@ -114,8 +121,8 @@ function setEnabledUI () {
   document.querySelector('#enabledSwitch').setAttribute('checked', true)
 }
 
-function updateFromBackgroundPage (bgPage) {
-  disabled = bgPage.topFrameHostDisabled
+function updateFromBackgroundPage (bgPage) { // eslint-disable-line no-unused-vars
+  const disabled = bgPage.topFrameHostDisabled
   if (disabled) {
     setDisabledUI()
   } else {
@@ -158,7 +165,7 @@ for (let feedbackBtn of document.querySelectorAll('.feedback-btn')) {
     if (feedback === 'page-problem') {
       showFeedbackPanel()
     } else {
-      window.close()
+      addon.port.emit('close')
     }
   })
 }
@@ -185,6 +192,17 @@ for (let submitBtn of document.querySelectorAll('.submit-btn')) {
         }
         addon.port.emit('notes', message)
       }
+      showThankYouPanel()
     }
+  })
+}
+
+document.querySelector('#close-btn').addEventListener('click', () => {
+  addon.port.emit('close')
+})
+
+for (let disableLink of document.querySelectorAll('.disable-link')) {
+  disableLink.addEventListener('click', () => {
+    addon.port.emit('disable')
   })
 }
