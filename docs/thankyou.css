@@ -36,11 +36,17 @@ a {
   padding-right: 1em;
 }
 
+.make-default {
+  display: flex;
+  justify-content: center;
+}
+
 .make-default-cta {
   color: #000000;
   text-align: center;
-  padding: .5em;
-  border: 1px solid #f2f2f2;
+  padding: .5em 2em;
+  border: 1px solid #c3c2c2;
+  font-size: 13px;
 }
 
 .share-ctas {
