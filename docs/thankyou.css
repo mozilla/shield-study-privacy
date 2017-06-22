@@ -72,6 +72,10 @@ a {
   background: #455998;
 }
 
+.fb-share-cta .cta-icon {
+  margin-top: -5px;
+}
+
 .tweet-cta {
   background: #70C1FC;
 }
