@@ -20,11 +20,15 @@ Images are used for visualization and are not composed of actual data.
 There is currently no server side component besides existing Unified Telemtry.
 
 ### Client Side
-Study will use SHIELD's Telemetry wrapper with no batching of data.  Details
-of when pings are sent are below, along with examples of the `payload` portion
-of a `shield-study` telemetry ping for each scenario.
+Study will use SHIELD's Telemetry wrapper with no batching of data.
 
-#### The user clicks "This page works well" button in the popup
+Clicking the browserAction icon opens a pop-up with panels to report site
+breakage problems. We send Telemetry pings on user events in the pop-up.
+
+Details of when pings are sent are below, along with examples of the `payload`
+portion of a `shield-study` telemetry ping for each scenario.
+
+#### The user clicks "This page works well" button in the pop-up
 
 ```js
   {
@@ -41,7 +45,7 @@ of a `shield-study` telemetry ping for each scenario.
   }
 ```
 
-#### The user clicks "Report a problem" button in the popup
+#### The user clicks "Report a problem" button in the pop-up
 
 ```js
   {
