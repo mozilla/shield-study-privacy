@@ -33,15 +33,10 @@ portion of a `shield-study` telemetry ping for each scenario.
 ```js
   {
     "branch": "thirdPartyCookiesOnlyFromVisited",
-    "originDomain": "www.redditmedia.com",
     "event": "page-works",
+    "originDomain": "www.redditmedia.com",
     "breakage": "",
-    "notes": "",
-    "study_version": "0.0.1",
-    "about": {
-      "_src": "addon",
-      "_v": 2
-    }
+    "notes": ""
   }
 ```
 
@@ -50,15 +45,10 @@ portion of a `shield-study` telemetry ping for each scenario.
 ```js
   {
     "branch": "thirdPartyCookiesOnlyFromVisited",
-    "originDomain": "www.redditmedia.com",
     "event": "page-problem",
+    "originDomain": "www.redditmedia.com",
     "breakage": "",
-    "notes": "",
-    "study_version": "0.0.1",
-    "about": {
-      "_src": "addon",
-      "_v": 2
-    }
+    "notes": ""
   }
 ```
 
@@ -66,14 +56,11 @@ portion of a `shield-study` telemetry ping for each scenario.
 
 ```js
 {
+  "branch": "thirdPartyCookiesOnlyFromVisited",
+  "event": "breakage",
   "originDomain": "redditmedia.com",
-  "event": "",
   "breakage": "buttons",
-  "study_version": "0.0.1",
-  "about": {
-    "_src": "addon",
-    "_v": 2
-  }
+  "notes": ""
 }
 ```
 
@@ -81,41 +68,40 @@ portion of a `shield-study` telemetry ping for each scenario.
 
 ```js
 {
+  "branch": "thirdPartyCookiesOnlyFromVisited",
+  "event": "notes",
   "originDomain": "redditmedia.com",
-  "event": "",
   "breakage": "images",
   "notes": "comment",
-  "study_version": "0.0.1",
-  "about": {
-    "_src": "addon",
-    "_v": 2
-  }
 }
 ```
 
 #### The user clicks "Disable privacy study" link
 
 ```
-TBD?
+{
+  "branch": "thirdPartyCookiesOnlyFromVisited",
+  "originDomain": "redditmedia.com",
+  "event": "disable",
+  "breakage": "",
+  "notes": "",
+}
 ```
 
-A Redshift schema for the payload:
-
-TBD ...
+### A Redshift schema for the payload
 
 ```lua
 local schema = {
 --   column name       field type   length  attributes   field name
+    {"branch",         "VARCHAR",   255,    nil,         "Fields[payload.branch]"},
+    {"event",          "VARCHAR",   255,    nil,         "Fields[payload.event]"},
     {"originDomain",   "VARCHAR",   255,    nil,         "Fields[payload.originDomain]"},
     {"breakage",       "VARCHAR",   255,    nil,         "Fields[payload.breakage]"},
-    {"notes",          "VARCHAR",   10000   nil,         "Fields[payload.notes]"},
-    {"event",          "VARCHAR",   255,    nil,         "Fields[payload.event]"}
+    {"notes",          "VARCHAR",   10000   nil,         "Fields[payload.notes]"}
 }
 ```
 
-Valid data should be enforced on the server side:
-
-TBD
+### Retention
 
 All Mozilla data is kept by default for 180 days and in accordance with our
 privacy policies.
