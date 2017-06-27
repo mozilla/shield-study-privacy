@@ -1,0 +1,81 @@
+body {
+  background: #F2F2F2;
+  font-family: -apple-system;
+  font-weight: lighter;
+  margin-bottom: .5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-box {
+  min-width: 13em;
+  max-width: 26em;
+  background: #fff;
+  margin: 1em;
+  padding: 2em 2em 2em 2em;
+}
+
+.title-text {
+  border-bottom: 1px solid #f2f2f2;
+  font-weight: lighter;
+  padding-bottom: 0.4em;
+}
+
+.title-logo {
+  height: 59px;
+  width: 57px;
+  vertical-align: middle;
+  padding-right: 1em;
+}
+
+.make-default {
+  display: flex;
+  justify-content: center;
+}
+
+.make-default-cta {
+  color: #000000;
+  text-align: center;
+  padding: .5em 2em;
+  border: 1px solid #c3c2c2;
+  font-size: 13px;
+}
+
+.share-ctas {
+  padding: 1em;
+  text-align: center;
+}
+
+.cta {
+  color: #ffffff;
+  padding: 1em;
+  text-transform: uppercase;
+  font-size: .75em;
+  font-weight: bold;
+  margin: .5em;
+}
+
+.cta-icon {
+  vertical-align: middle;
+  padding-right: 1em;
+}
+
+.fb-share-cta {
+  background: #455998;
+}
+
+.fb-share-cta .cta-icon {
+  margin-top: -5px;
+}
+
+.tweet-cta {
+  background: #70C1FC;
+}
