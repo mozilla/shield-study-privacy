@@ -1,4 +1,4 @@
-/* globals addon */
+/* globals addon, URL */
 const disabled = false // eslint-disable-line no-unused-vars
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -46,23 +46,25 @@ const breakageRadioOptions = {
     {'value': 'other', 'label': 'Something else'}
   ]
 }
-const searchParams = new URL(window.location).searchParams;
-const variation = decodeURIComponent(searchParams.get("variation"));
+const searchParams = new URL(window.location).searchParams
+const variation = decodeURIComponent(searchParams.get('variation'))
 let breakageChecked = null
 
 // an implimentation of the Fisher-Yates Shuffle
-function shuffle(array) {
-  let m = array.length, temp, i;
+function shuffle (array) {
+  let m = array.length
+  let temp
+  let i
   while (m) { // while there remain elements to shuffle
     // Pick a remaining element at random
-    i = Math.floor(Math.random() * m);
-    m -= m;
+    i = Math.floor(Math.random() * m)
+    m -= m
     // And swap it with the current element
-    temp = Object.assign({}, array[m]);
-    array[m] = Object.assign({}, array[i]);
-    array[i] = Object.assign({}, temp);
+    temp = Object.assign({}, array[m])
+    array[m] = Object.assign({}, array[i])
+    array[i] = Object.assign({}, temp)
   }
-  return array;
+  return array
 }
 
 function show (querySelector) {
@@ -77,37 +79,37 @@ function hide (querySelector) {
   }
 }
 
-function refreshBreakageOptions() {
+function refreshBreakageOptions () {
   // Shuffle breakage options everytime feedback-panel is shown
   const options = shuffle(breakageRadioOptions[variation])
 
   const radioOptionsDiv = document.querySelector('#breakage-radio-options')
   while (radioOptionsDiv.firstChild) {
-    radioOptionsDiv.removeChild(radioOptionsDiv.firstChild);
+    radioOptionsDiv.removeChild(radioOptionsDiv.firstChild)
   }
 
   for (let option of options) {
-    const input = document.createElement("input");
-    const label = document.createElement("label");
+    const input = document.createElement('input')
+    const label = document.createElement('label')
 
-    input.classList.add("breakage");
-    input.type = "radio";
-    input.name = "breakage";
-    input.value = option.value;
-    input.id = option.value;
+    input.classList.add('breakage')
+    input.type = 'radio'
+    input.name = 'breakage'
+    input.value = option.value
+    input.id = option.value
 
-    label.setAttribute("for", option.value);
-    label.innerText = option.label;
+    label.setAttribute('for', option.value)
+    label.innerText = option.label
 
-    radioOptionsDiv.appendChild(input);
-    radioOptionsDiv.appendChild(label);
-    radioOptionsDiv.appendChild(document.createElement("br"));
+    radioOptionsDiv.appendChild(input)
+    radioOptionsDiv.appendChild(label)
+    radioOptionsDiv.appendChild(document.createElement('br'))
   }
 }
 
 function showFeedbackPanel () {
   hide('#main-panel')
-  refreshBreakageOptions(); // shuffle and replace the breakage options
+  refreshBreakageOptions() // shuffle and replace the breakage options
   show('#feedback-panel')
   hide('#breakage-notes-panel')
 }
