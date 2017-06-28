@@ -79,8 +79,13 @@ function hide (querySelector) {
 
 function refreshBreakageOptions() {
   // Shuffle breakage options everytime feedback-panel is shown
-  const options = shuffle(breakageRadioOptions[variation])
+  // keep last value "Something Else" at end: don't include in shuffle
+  let options = breakageRadioOptions[variation];
+  const lastValue = options.pop();
+  options = shuffle(options);
+  options.push(lastValue);
 
+  // clear out old options (to make room for new shuffle)
   const radioOptionsDiv = document.querySelector('#breakage-radio-options')
   while (radioOptionsDiv.firstChild) {
     radioOptionsDiv.removeChild(radioOptionsDiv.firstChild);
