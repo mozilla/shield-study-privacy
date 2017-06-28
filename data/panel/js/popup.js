@@ -43,6 +43,7 @@ const breakageRadioOptions = {
     {'value': 'layout', 'label': 'Layout'},
     {'value': 'fonts', 'label': 'Fonts'},
     {'value': 'flash', 'label': 'Flash'},
+    {'value': 'screen', 'label': 'Screen size is messed up.'},
     {'value': 'other', 'label': 'Something else'}
   ]
 }
