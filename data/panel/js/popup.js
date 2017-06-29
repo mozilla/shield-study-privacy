@@ -1,4 +1,4 @@
-/* globals addon */
+/* globals addon, URL */
 const disabled = false // eslint-disable-line no-unused-vars
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -46,10 +46,26 @@ const breakageRadioOptions = {
     {'value': 'other', 'label': 'Something else'}
   ]
 }
-const searchParams = new URL(window.location).searchParams;
-const variation = decodeURIComponent(searchParams.get("variation"));
+const searchParams = new URL(window.location).searchParams
+const variation = decodeURIComponent(searchParams.get('variation'))
 let breakageChecked = null
 
+// an implimentation of the Fisher-Yates Shuffle
+function shuffle (array) {
+  let m = array.length
+  let temp
+  let i
+  while (m) { // while there remain elements to shuffle
+    // Pick a remaining element at random
+    i = Math.floor(Math.random() * m)
+    m -= m
+    // And swap it with the current element
+    temp = Object.assign({}, array[m])
+    array[m] = Object.assign({}, array[i])
+    array[i] = Object.assign({}, temp)
+  }
+  return array
+}
 
 function show (querySelector) {
   for (let element of document.querySelectorAll(querySelector)) {
@@ -63,8 +79,42 @@ function hide (querySelector) {
   }
 }
 
+function refreshBreakageOptions () {
+  // Shuffle breakage options everytime feedback-panel is shown
+  // keep last value "Something Else" at end: don't include in shuffle
+  let options = breakageRadioOptions[variation]
+  const lastValue = options.pop()
+  options = shuffle(options)
+  options.push(lastValue)
+
+  // clear out old options (to make room for new shuffle)
+  const radioOptionsDiv = document.querySelector('#breakage-radio-options')
+  while (radioOptionsDiv.firstChild) {
+    radioOptionsDiv.removeChild(radioOptionsDiv.firstChild)
+  }
+
+  for (let option of options) {
+    const input = document.createElement('input')
+    const label = document.createElement('label')
+
+    input.classList.add('breakage')
+    input.type = 'radio'
+    input.name = 'breakage'
+    input.value = option.value
+    input.id = option.value
+
+    label.setAttribute('for', option.value)
+    label.innerText = option.label
+
+    radioOptionsDiv.appendChild(input)
+    radioOptionsDiv.appendChild(label)
+    radioOptionsDiv.appendChild(document.createElement('br'))
+  }
+}
+
 function showFeedbackPanel () {
   hide('#main-panel')
+  refreshBreakageOptions() // shuffle and replace the breakage options
   show('#feedback-panel')
   hide('#breakage-notes-panel')
 }
@@ -132,25 +182,6 @@ function updateFromBackgroundPage (bgPage) { // eslint-disable-line no-unused-va
   if (hostReport.hasOwnProperty('feedback')) {
     showHostReport(hostReport)
   }
-}
-
-for (let option of breakageRadioOptions[variation]) {
-  const radioOptionsDiv = document.querySelector('#breakage-radio-options')
-  const input = document.createElement("input");
-  const label = document.createElement("label");
-
-  input.classList.add("breakage");
-  input.type = "radio";
-  input.name = "breakage";
-  input.value = option.value;
-  input.id = option.value;
-
-  label.setAttribute("for", option.value);
-  label.innerText = option.label;
-
-  radioOptionsDiv.appendChild(input);
-  radioOptionsDiv.appendChild(label);
-  radioOptionsDiv.appendChild(document.createElement("br"));
 }
 
 for (let feedbackBtn of document.querySelectorAll('.feedback-btn')) {
