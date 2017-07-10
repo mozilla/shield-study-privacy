@@ -45,6 +45,16 @@ const breakageRadioOptions = {
     {'value': 'flash', 'label': 'Flash'},
     {'value': 'screen', 'label': 'Window size'},
     {'value': 'other', 'label': 'Something else'}
+  ],
+  'firstPartyIsolation': [
+    {'value': 'login-failure', 'label': 'Could not sign in.'},
+    {'value': 'social-failure', 'label': 'Could not share, like, or tweet.'},
+    {'value': 'other', 'label': 'Something else'}
+  ],
+  'firstPartyIsolationOpenerAccess': [
+    {'value': 'login-failure', 'label': 'Could not sign in.'},
+    {'value': 'social-failure', 'label': 'Could not share, like, or tweet.'},
+    {'value': 'other', 'label': 'Something else'}
   ]
 }
 const searchParams = new URL(window.location).searchParams
