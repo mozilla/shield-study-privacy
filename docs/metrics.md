@@ -32,6 +32,7 @@ portion of a `shield-study` telemetry ping for each scenario.
 
 ```js
   {
+    "study": "@shield-study-privacy",
     "branch": "thirdPartyCookiesOnlyFromVisited",
     "event": "page-works",
     "originDomain": "www.redditmedia.com",
@@ -44,6 +45,7 @@ portion of a `shield-study` telemetry ping for each scenario.
 
 ```js
   {
+    "study": "@shield-study-privacy",
     "branch": "thirdPartyCookiesOnlyFromVisited",
     "event": "page-problem",
     "originDomain": "www.redditmedia.com",
@@ -56,6 +58,7 @@ portion of a `shield-study` telemetry ping for each scenario.
 
 ```js
 {
+  "study": "@shield-study-privacy",
   "branch": "thirdPartyCookiesOnlyFromVisited",
   "event": "breakage",
   "originDomain": "redditmedia.com",
@@ -68,6 +71,7 @@ portion of a `shield-study` telemetry ping for each scenario.
 
 ```js
 {
+  "study": "@shield-study-privacy",
   "branch": "thirdPartyCookiesOnlyFromVisited",
   "event": "notes",
   "originDomain": "redditmedia.com",
@@ -80,6 +84,7 @@ portion of a `shield-study` telemetry ping for each scenario.
 
 ```
 {
+  "study": "@shield-study-privacy",
   "branch": "thirdPartyCookiesOnlyFromVisited",
   "originDomain": "redditmedia.com",
   "event": "disable",
@@ -93,6 +98,7 @@ portion of a `shield-study` telemetry ping for each scenario.
 ```lua
 local schema = {
 --   column name       field type   length  attributes   field name
+    {"study",          "VARCHAR",   255,    nil,         "Fields[payload.study]"},
     {"branch",         "VARCHAR",   255,    nil,         "Fields[payload.branch]"},
     {"event",          "VARCHAR",   255,    nil,         "Fields[payload.event]"},
     {"originDomain",   "VARCHAR",   255,    nil,         "Fields[payload.originDomain]"},
